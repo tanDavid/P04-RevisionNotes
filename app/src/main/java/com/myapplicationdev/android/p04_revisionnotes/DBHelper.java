@@ -87,7 +87,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		// Create an ArrayList that holds String objects
         ArrayList<String> notes = new ArrayList<String>();
         // Select all the notes' content
-        String selectQuery = "SELECT " + COLUMN_NOTE_CONTENT + "FROM" + TABLE_NOTE;
+        String selectQuery = "SELECT " + COLUMN_NOTE_CONTENT + " FROM " + TABLE_NOTE;
 
         // Get the instance of database to read
         SQLiteDatabase db = this.getReadableDatabase();
@@ -103,7 +103,6 @@ public class DBHelper extends SQLiteOpenHelper {
 				//  getString(1) return second column data
 				//  getInt(0) if data is an integer value
             	notes.add(cursor.getString(0));
-				Log.d("TAG", cursor.getString(0));
             } while (cursor.moveToNext());
         }
         // Close connection
