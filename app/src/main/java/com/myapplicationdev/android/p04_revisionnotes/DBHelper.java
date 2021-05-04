@@ -103,7 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
 				//  getString(1) return second column data
 				//  getInt(0) if data is an integer value
             	notes.add(cursor.getString(0));
-
+				Log.d("TAG", cursor.getString(0));
             } while (cursor.moveToNext());
         }
         // Close connection

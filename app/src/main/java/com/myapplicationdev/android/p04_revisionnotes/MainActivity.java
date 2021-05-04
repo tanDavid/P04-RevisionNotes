@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         rgStars = findViewById(R.id.radioGroupStars);
         btnInsert = findViewById(R.id.buttonInsertNote);
         btnShow = findViewById(R.id.buttonShowList);
+        btnGood = findViewById(R.id.buttonShowGood);
 
         final Intent intent = new Intent(MainActivity.this, SecondActivity.class);
 
@@ -34,9 +35,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 rb = (RadioButton) findViewById(rgStars.getCheckedRadioButtonId());
                 DBHelper db = new DBHelper(MainActivity.this);
+
                 if (Integer.valueOf(rb.getText().toString()) > 0 && !etNote.getText().toString().isEmpty()) {
-                    db.insertNote(etNote.getText().toString(), Integer.valueOf(rb.getText().toString()));
-                    Toast.makeText(MainActivity.this, "Inserted", Toast.LENGTH_SHORT).show();
+
+                    if(db.getNoteContent().contains(etNote.getText().toString())) {
+                        db.insertNote(etNote.getText().toString(), Integer.valueOf(rb.getText().toString()));
+                        Toast.makeText(MainActivity.this, "Inserted", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(MainActivity.this, "Failed to insert due to value already entered", Toast.LENGTH_SHORT).show();
+                    }
+
                 } else {
                     Toast.makeText(MainActivity.this, "Failed to insert due to empty value entries", Toast.LENGTH_SHORT).show();
                 }
