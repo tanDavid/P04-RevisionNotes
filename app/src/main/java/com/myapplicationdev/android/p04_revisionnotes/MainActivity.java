@@ -38,12 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
                 if (Integer.valueOf(rb.getText().toString()) > 0 && !etNote.getText().toString().isEmpty()) {
 
-                    if(db.getNoteContent().contains(etNote.getText().toString())) {
+                    if(!db.getNoteContent().contains(etNote.getText().toString())) {
                         db.insertNote(etNote.getText().toString(), Integer.valueOf(rb.getText().toString()));
                         Toast.makeText(MainActivity.this, "Inserted", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(MainActivity.this, "Failed to insert due to value already entered", Toast.LENGTH_SHORT).show();
                     }
+
+
 
                 } else {
                     Toast.makeText(MainActivity.this, "Failed to insert due to empty value entries", Toast.LENGTH_SHORT).show();
