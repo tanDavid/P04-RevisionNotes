@@ -59,7 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		//TODO return records in Java objects
 		// Create an ArrayList that holds String objects
 		ArrayList<Note> notes = new ArrayList<Note>();
-		String selectQuery = "SELECT " + COLUMN_NOTE_CONTENT
+		String selectQuery = "SELECT " + COLUMN_ID + "," + COLUMN_NOTE_CONTENT
 				+ "," + COLUMN_STARS + " FROM " + TABLE_NOTE;
 
 		// Get the instance of database to read
