@@ -53,6 +53,20 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 			iv3.setImageResource(android.R.drawable.btn_star_big_on);
 			iv2.setImageResource(android.R.drawable.btn_star_big_on);
 			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else if (stars == 4){
+			iv4.setImageResource(android.R.drawable.btn_star_big_on);
+			iv3.setImageResource(android.R.drawable.btn_star_big_on);
+			iv2.setImageResource(android.R.drawable.btn_star_big_on);
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else if (stars == 3) {
+			iv3.setImageResource(android.R.drawable.btn_star_big_on);
+			iv2.setImageResource(android.R.drawable.btn_star_big_on);
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else if (stars == 2) {
+			iv2.setImageResource(android.R.drawable.btn_star_big_on);
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else if (stars == 1){
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
 		}
 
 		return rowView;
