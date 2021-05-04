@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNote;
     RadioGroup rgStars;
     RadioButton rb;
-    Button btnInsert, btnShow;
+    Button btnInsert, btnShow, btnGood;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         rgStars = findViewById(R.id.radioGroupStars);
         btnInsert = findViewById(R.id.buttonInsertNote);
         btnShow = findViewById(R.id.buttonShowList);
+
+        final Intent intent = new Intent(MainActivity.this, SecondActivity.class);
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,13 +46,17 @@ public class MainActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("good", false);
                 startActivity(intent);
             }
         });
 
-
-
+        btnGood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.putExtra("good", true);
+                startActivity(intent);
+            }
+        });
     }
-
 }
