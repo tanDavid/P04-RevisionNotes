@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 DBHelper db = new DBHelper(MainActivity.this);
                 if (Integer.valueOf(rb.getText().toString()) > 0 && !etNote.getText().toString().isEmpty()) {
                     db.insertNote(etNote.getText().toString(), Integer.valueOf(rb.getText().toString()));
+                    Toast.makeText(MainActivity.this, "Inserted", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Failed to insert due to empty value entries", Toast.LENGTH_SHORT).show();
                 }
