@@ -41,7 +41,7 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 
 
 		Note note = notes.get(position);
-		int stars = notes
+		int stars = note.getStars();
 
 		//Check if the property for starts >= 5, if so, "light" up the stars
 		if (stars >= 5) {
